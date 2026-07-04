@@ -37,7 +37,6 @@ export default {
     if (url.pathname === "/products") {
       const shopsRes = await fetch("https://api.printify.com/v1/shops.json", {
         headers: { Authorization: `Bearer ${env.PRINTIFY_TOKEN}` }
-      });
 
       const shops = await shopsRes.json();
       const shop = Array.isArray(shops) ? shops[0] : shops?.data?.[0];
