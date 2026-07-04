@@ -23,6 +23,7 @@ export default {
     if (url.pathname === "/shops") {
       const res = await fetch("https://api.printify.com/v1/shops.json", {
         headers: { Authorization: `Bearer ${env.PRINTIFY_TOKEN}` }
+      });}` }
       });
 
       const text = await res.text();
