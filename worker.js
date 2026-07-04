@@ -22,9 +22,10 @@ export default {
 
     if (url.pathname === "/shops") {
       const res = await fetch("https://api.printify.com/v1/shops.json", {
-        headers: { Authorization: `Bearer ${env.PRINTIFY_TOKEN}` }
-      });}
-  
+        headers: {
+          Authorization: `Bearer ${env.PRINTIFY_TOKEN}`
+        }
+      });
 
       const text = await res.text();
 
@@ -36,7 +37,10 @@ export default {
 
     if (url.pathname === "/products") {
       const shopsRes = await fetch("https://api.printify.com/v1/shops.json", {
-        headers: { Authorization: `Bearer ${env.PRINTIFY_TOKEN}` }
+        headers: {
+          Authorization: `Bearer ${env.PRINTIFY_TOKEN}`
+        }
+      });
 
       const shops = await shopsRes.json();
       const shop = Array.isArray(shops) ? shops[0] : shops?.data?.[0];
@@ -46,7 +50,9 @@ export default {
       }
 
       const productsRes = await fetch(`https://api.printify.com/v1/shops/${shop.id}/products.json`, {
-        headers: { Authorization: `Bearer ${env.PRINTIFY_TOKEN}` }
+        headers: {
+          Authorization: `Bearer ${env.PRINTIFY_TOKEN}`
+        }
       });
 
       const text = await productsRes.text();
